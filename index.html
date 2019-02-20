@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>随机点名</title>
+<style type="text/css">
+*{
+	margin: 0;
+	padding:0;
+}
+.box{
+	width: 200px;
+	height: 100px;
+	border:5px solid blue;
+	border-radius: 10px;
+	text-align: center;
+	line-height: 100px;
+	font-size: 32px;
+	margin:20px auto;
+}
+.btn{
+	padding:20px 0;
+	text-align: center;
+}
+.btn a{
+	display: inline-block;
+	width: 80px;
+	height: 30px;
+	background: #ac0;
+	border-radius: 5px;
+	border:1px solid black;
+	text-align: center;
+	line-height: 30px;
+	margin-right:5px;
+	text-decoration: none;
+	color: black;
+}
+</style>
+</head>
+<body>
+	<div class="box" id="box"></div>
+	<div class="btn"><a id="start" href="javascript:void(0);">开始</a><!-- <a href="javascript:void(0);" id="stop">暂停</a> --></div>
+	<script type="text/javascript">
+	var box = document.getElementById("box");
+	var start = document.getElementById("start");
+	var stop = document.getElementById("stop");
+
+	var time = null;
+	var t = null;
+
+	var arrA = ['郭振霄','程元','梁晨','张立','张浩','李帝霖','孙勃兴','马笠烨','王亚龙','杨远','张夏宁','陈静','徐倩','刘琪','刘彤','马莎','曹秦鸣','张宇航','赵虎','梁小虎','尚优','刘言','曹毅','杨博','郭帆','田野','宁律霖','张奔','林静','刘元瑞','张旭浩','唐勇欣','陈晓刚','王瑞茜','苗鹏军','张明涛','高煜昕','李永辉','吴浩','马兴','李香香','孙新','李凯华','李磊','史凯迪','赵治强','聂兵','穆云浩','宁律霖','尚优'];
+	// alert(arrA.length);
+	function changeFn(){
+		var num = Math.floor(Math.random()*arrA.length);
+		box.innerHTML = arrA[num];
+
+		var s = Math.floor(Math.random()*500);
+		if(s == t){
+			clearInterval(time);
+		}
+	}
+	start.onclick = function(){
+		t = Math.floor(Math.random()*500);
+		time = setInterval(function(){
+			changeFn();
+		})
+	}
+
+
+	// stop.onclick = function(){
+	// 	clearInterval(time);
+	// }
+	</script>
+</body>
+</html>
